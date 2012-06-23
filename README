@@ -1,0 +1,3 @@
+This application will setup a REST endpoint to upload images coming from any REST call. It assumes a base64 string and converts that string to am image and uploads it to MongoHQ's GridFS file system along with a document. to run the application use node app.js. Enjoy
+
+any question email me sheadley@swbell.net 
