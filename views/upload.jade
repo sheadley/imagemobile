@@ -1,0 +1,25 @@
+link(rel='stylesheet', href='/stylesheets/style.css')
+link(rel='stylesheet', href='/stylesheets/bootstrap.css') 
+.container
+    .content
+        header.page-header
+           h1 Title text
+                small.subtitle Subtitle text
+    .row
+            article.span10
+                - if (errors.length)
+                    - errors.forEach(function(error){
+                        .alert-message.error= error
+                    - })
+                - if (messages.length)
+                    - messages.forEach(function(message){
+                        .alert-message.success= message
+                    - })
+                h2 Upload form
+                | <form method="post" enctype="multipart/form-data" action="/upload_post">
+                | <input type="file" name="thumbnail">
+                .p
+                |<button class="btn" type="submit">
+                | Submit
+                | </button>
+                | </form>

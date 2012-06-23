@@ -1,0 +1,57 @@
+link(rel='stylesheet', href='/stylesheets/style.css')
+link(rel='stylesheet', href='/stylesheets/bootstrap.css') 
+.container
+    .content
+        header.page-header
+           h1 Title text
+                small.subtitle Subtitle text
+    .row
+            article.span10
+                - if (errors.length)
+                    - errors.forEach(function(error){
+                        .alert-message.error= error
+                    - })
+                - if (messages.length)
+                    - messages.forEach(function(message){
+                        .alert-message.success= message
+                    - })
+                h2 Registration form
+                form(action='/', method='post')
+                    fieldset
+                        legend Contact
+                        .clearfix
+                            label(for="title") Title
+                            .input
+                                select#title(name="title")
+                                    option Mr
+                                    option Mme
+                                    option Miss
+                                    option Ms
+                        .clearfix
+                            label(for="lastname") Lastname
+                            .input
+                                input#lastname.xlarge(type="text", size="30", name="lastname", required="required")
+                        .clearfix
+                            label(for="firstname") Firstname
+                            .input
+                                input#firstname.xlarge(type="text", size="30", name="firstname", required="required")
+                        .clearfix
+                            label(for="mail") E-mail
+                            .input-prepend
+                                span.add-on @
+                                input#mail.xlarge(type="email", size="30", name="mail", required="required")
+                    fieldset
+                        .actions
+                            input.btn.primary(type="submit", value="Save")&nbsp;
+                            button.btn(type="reset") Cancel
+            aside.span4
+                h3 About this demo
+                p This demo is provided as-is with no warranty under the MIT licence.
+                p More informations about this demo as well as the full source code is provided here: <a href="http://blog.jtlebi.fr/2011/11/20/understanding-mvc-with-express-node-js-and-mongo-db">http://blog.jtlebi.fr/2011/11/20/understanding-mvc-with-express-node-js-and-mongo-db</a>
+                h3 Navigation
+                ul
+                    li <a href="/list">Member list</a>
+                    li <a href="/csv">CSV export</a>
+                    li <a href="/sms">Send SMS</a>
+    footer
+        p &copy; <a href="http://jtlebi.fr/">Jean-Tiare LE BIGOT</a> 2011 - MIT licence

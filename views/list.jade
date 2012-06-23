@@ -1,0 +1,29 @@
+link(rel='stylesheet', href='/stylesheets/style.css')
+link(rel='stylesheet', href='/stylesheets/bootstrap.css') 
+.container
+    .content
+        header.page-header
+            h1 Title text
+                small.subtitle Subtitle text
+        article.row
+            .span14
+                h2 Member list
+                - if (members.length)
+                    table.zebra-striped
+                        thead
+                            tr
+                                th Nom
+                                th Mail
+                                th Date
+                        tbody
+                        - members.forEach(function(member){
+                            tr
+                                td= member['title']+" "+member['firstname']+" "+member['lastname']
+                                td= member['mail']
+                                td= member['date']
+                        - })
+                - else
+                    p No registered members yet.
+    
+    footer
+        p &copy; <a href="http://jtlebi.fr/">Jean-Tiare LE BIGOT</a> 2011 - GPL 2.0

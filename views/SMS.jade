@@ -1,0 +1,39 @@
+link(rel='stylesheet', href='/stylesheets/style.css')
+link(rel='stylesheet', href='/stylesheets/bootstrap.css') 
+.container
+    .content
+        header.page-header
+           h1 Title text
+                small.subtitle Subtitle text
+    .row
+            article.span10
+                - if (errors.length)
+                    - errors.forEach(function(error){
+                        .alert-message.error= error
+                    - })
+                - if (messages.length)
+                    - messages.forEach(function(message){
+                        .alert-message.success= message
+                    - })
+                h2 SMS form
+                form(action='/sms_post', method='post')
+                    fieldset
+                        legend Contact
+                        .clearfix
+                            label(for="from") From
+                            .input
+                                input#from.xlarge(type="text", size="30", name="from", required="required")
+                        .clearfix
+                            label(for="to") To
+                            .input
+                                input#to.xlarge(type="text", size="30", name="to", required="required")
+                        .clearfix
+                            label(for="body") Message
+                            .input
+                                input#body.xlarge(type="text", size="30", name="body", required="required")
+                    fieldset
+                        .actions
+                            input.btn.primary(type="submit", value="Send")&nbsp;
+                            button.btn(type="reset") Cancel
+    footer
+        p &copy; <a href="http://jtlebi.fr/">Jean-Tiare LE BIGOT</a> 2011 - MIT licence
